@@ -1,10 +1,13 @@
 function MateriaOscura(n) {
+  const E = 1;
+  const M = 0;
   let Travels = [];
   var missionData = [];
-  var a = 0;
-  var b = 0;
-  var c = 0;
-  if (n <= 100) { //Primer Condicional
+  var count = 0;
+  var temp = 0;
+  var A = 0;
+
+  if (n <= 100) { //First Conditional
     for (i = 1; i <= n; i++) { //Primer Ciclo
       for (j = 0; j < 1; j++) { //Segundo Ciclo
         m = prompt(`Minutos: T${i}`);
@@ -14,37 +17,59 @@ function MateriaOscura(n) {
         Travels.push(missionData);
         missionData = [];
       }
-    } if (n < 100) { //Segundo Condicional
-      debugger
-      for (i = 0; i < 1; i++) { //Get a
-        a = Travels[i][0];
-        a = parseInt(a)
-      }
-      for (i = 1; i < n; i++) { // Get b
-        b = Travels[i][0];
-        b = parseInt(b)
-      }
-      for (i = 0; i < n; i++) {
-        e = Travels[i][1];
-        if (e != 0) {
-          b = b / 2;
+    } if (n < 100) { //Second Conditional
+
+      for (i = 0; i < n; i++) { //Verify e
+        if (Travels[i][E] != 0) {
+          count++;
+        } else if (Travels[i][E] == 0) {
         } else {
         }
       }
-      c = a + b;
+
+      A = Travels[0][0];
+      A = parseInt(A);
+      var b = 0;
+      var sum = 0;
+      //Third conditional
+      switch (count) {//Cases of 0 or 1 e.
+        case 0:
+          count == 0;
+          for (i = 1; i < n; i++) {
+            temp = Travels[i][M];
+            temp = parseInt(temp);
+            b = b + temp;
+          }
+          sum = A + b;
+          break;
+        case 1:
+          count == 1;
+          for (i = 1; i < n; i++) {
+            temp = Travels[i][M];
+            temp = parseInt(temp);
+            b = b + (temp / 2);
+          }
+          sum = A + b;
+          console.log(sum)
+          break;
+      } if (count > 2 || count <= 10) { //Case of more e than 2
+        for (i = 1; i < n; i++) {
+          temp = Travels[i][M];
+          temp = parseInt(temp);
+          b = b + (temp / 2);
+        }
+        sum = A + b;
+        console.log(sum)
+      } else {
+        console.log('Missing cases')
+      }
     }
-    console.log(`El tiempo minimo requerido para los trayectos es: ${c}`)
+    console.log(`El tiempo minimo requerido para los trayectos es: ${sum}`)
   } else {
     console.log('Limite de trayectos excedido!')
   }
   Travels = [];
 };
 
-const n = 2;
+const n = 3;
 MateriaOscura(n);
-
-
-const Trayectos = [
-  [24, 1],
-  [10, 0]
-];
