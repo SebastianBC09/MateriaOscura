@@ -7,7 +7,7 @@ function MateriaOscura(n) {
   var temp = 0;
   var A = 0;
 
-  if (n <= 100) { //First Conditional
+  if (n <= 100 && n != 0) { //First Conditional
     for (i = 1; i <= n; i++) { //Primer Ciclo
       for (j = 0; j < 1; j++) { //Segundo Ciclo
         m = prompt(`Minutos: T${i}`);
@@ -50,7 +50,6 @@ function MateriaOscura(n) {
             b = b + (temp / 2);
           }
           sum = A + b;
-          console.log(sum)
           break;
       } if (count > 2 || count <= 10) { //Case of more e than 2
         for (i = 1; i < n; i++) {
@@ -59,7 +58,6 @@ function MateriaOscura(n) {
           b = b + (temp / 2);
         }
         sum = A + b;
-        console.log(sum)
       } else {
         console.log('Missing cases')
       }
